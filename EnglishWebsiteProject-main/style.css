@@ -1,0 +1,546 @@
+:root {
+    --faction-abnegation: #c9b69b;
+    --faction-erudite: #1687c4;
+    --faction-dauntless: #f2c739;
+    --faction-amity: #ed4b08;
+    --faction-candor: #45413c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f5f5f7;
+    color: #24232b;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    width: min(100% - 32px, 1100px);
+    margin: 48px auto 80px;
+}
+
+#info {
+    margin-bottom: 20px;
+    color: #050505;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.factions-section {
+    margin-bottom: 32px;
+}
+
+.factions-section > h1 {
+    margin: 0 0 16px;
+    font-size: clamp(24px, 5vw, 32px);
+}
+
+.simulation-intro {
+    margin-bottom: 24px;
+    padding: 20px;
+    border: 1px solid #000;
+    background: #fff;
+    box-shadow: 0 3px 12px rgb(34 31 43 / 7%);
+    line-height: 1.6;
+}
+
+.simulation-intro h2 {
+    margin: 0 0 10px;
+}
+
+.simulation-intro p {
+    margin: 0;
+}
+
+.faction-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 16px;
+    row-gap: 30px;
+}
+
+.divergent-card {
+    padding: 20px;
+    border: 1px solid #000;
+    background: linear-gradient(
+        110deg,
+        var(--faction-abnegation),
+        var(--faction-erudite),
+        var(--faction-dauntless),
+        var(--faction-amity),
+        var(--faction-candor)
+    );
+    box-shadow: 0 3px 12px rgb(34 31 43 / 7%);
+}
+
+.faction-card {
+    padding: 20px;
+    border: 5px solid #000;
+    background: var(--faction-color);
+    box-shadow: 0 3px 12px rgb(34 31 43 / 7%);
+    color: #fff;
+}
+
+.faction-card.faction-abnegation,
+.faction-card.faction-dauntless {
+    color: #24232b;
+}
+
+.faction-abnegation {
+    --faction-color: var(--faction-abnegation);
+}
+
+.faction-erudite {
+    --faction-color: var(--faction-erudite);
+}
+
+.faction-dauntless {
+    --faction-color: var(--faction-dauntless);
+}
+
+.faction-amity {
+    --faction-color: var(--faction-amity);
+}
+
+.faction-candor {
+    --faction-color: var(--faction-candor);
+}
+
+.faction-factionless {
+    --faction-color: #77736d;
+}
+
+.faction-card h2,
+.divergent-card h2 {
+    margin: 0 0 14px;
+    padding: 14px;
+    font-size: 22px;
+}
+
+.faction-card h2 {
+    color: inherit;
+}
+
+.divergent-card h2 {
+    color: #fff;
+}
+
+.faction-image {
+    display: grid;
+    min-height: 150px;
+    place-items: center;
+    color: #24232b;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.faction-image {
+    background: #fff;
+    border: 3px solid #000;
+}
+
+.faction-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+.faction-card p,
+.divergent-card p {
+    margin: 14px 0 0;
+    padding: 14px;
+    color: inherit;
+    line-height: 1.5;
+}
+
+.faction-card blockquote {
+    margin: 14px 0 0;
+    padding: 14px;
+    border-left: 3px solid currentColor;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.faction-members {
+    margin-top: 14px;
+    padding: 14px;
+}
+
+.faction-members h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.faction-members ul {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.5;
+}
+
+.faction-members li + li {
+    margin-top: 4px;
+}
+
+.faction-card.faction-abnegation p,
+.faction-card.faction-dauntless p,
+.faction-card.faction-factionless p {
+    color: #24232b;
+}
+
+.divergent-card p {
+    color: #fff;
+}
+
+.divergent-members {
+    margin-top: 14px;
+    padding: 14px;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.divergent-members h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.divergent-members ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.divergent-members li + li {
+    margin-top: 4px;
+}
+
+.divergent-card {
+    margin-top: 20px;
+}
+
+#take-quiz {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border: 0;
+    border-radius: 0;
+    background: #b7a0d0;
+    box-shadow: 0 4px 0 #806899;
+    color: #000;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 800;
+    transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+#take-quiz:hover {
+    transform: translateY(-2px);
+    background: #a68abe;
+    box-shadow: 0 6px 0 #806899;
+}
+
+#take-quiz:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #806899;
+}
+
+#take-quiz:focus-visible,
+.answer-option:focus-visible,
+.quiz-navigation button:focus-visible,
+.quiz-restart:focus-visible {
+    outline: 3px solid #7041a6;
+    outline-offset: 3px;
+}
+
+#trivia {
+    margin-top: 42px;
+}
+
+#trivia[hidden] {
+    display: none;
+}
+
+.quiz-header {
+    margin-bottom: 22px;
+    padding: 30px 32px 26px;
+    border: 1px solid #9a83b4;
+    border-radius: 0;
+    background: linear-gradient(125deg, #d2c1e3, #e6dcef 72%);
+    color: #000;
+    box-shadow: 0 8px 24px rgb(34 31 43 / 8%);
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    color: #000;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+.quiz-header .eyebrow,
+.results-card .eyebrow {
+    color: #000;
+}
+
+.quiz-header h1 {
+    margin: 0;
+    color: #000;
+    font-size: clamp(30px, 6vw, 46px);
+    line-height: 1.08;
+}
+
+.quiz-header > p:not(.eyebrow) {
+    margin: 12px 0 24px;
+    color: #000;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #000;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.question-card {
+    margin: 18px 0;
+    padding: 26px 30px 30px;
+    border: 1px solid #e8e7eb;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: 0 8px 24px rgb(34 31 43 / 8%);
+}
+
+.question-card.faction-abnegation,
+.question-card.faction-erudite,
+.question-card.faction-dauntless,
+.question-card.faction-amity,
+.question-card.faction-candor {
+    --answer-highlight: color-mix(in srgb, var(--faction-color) 20%, white);
+    border-color: var(--faction-color);
+    background: var(--faction-color);
+    color: #fff;
+}
+
+.question-card.faction-abnegation,
+.question-card.faction-dauntless {
+    color: #24232b;
+}
+
+.question-hint {
+    margin: -8px 0 18px;
+    color: #777481;
+    font-size: 14px;
+}
+
+.question-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin: 0 0 20px;
+    font-size: clamp(22px, 3vw, 29px);
+    line-height: 1.3;
+}
+
+.answer-list {
+    display: grid;
+    gap: 12px;
+}
+
+.answer-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    min-height: 64px;
+    padding: 12px 16px;
+    border: 2px solid #e8e7eb;
+    border-radius: 0;
+    background: #fff;
+    color: #24232b;
+    cursor: pointer;
+    font: inherit;
+    font-size: 15px;
+    text-align: left;
+    line-height: 1.45;
+    transition: border-color 150ms ease, background 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.answer-option:not(:disabled):hover {
+    border-color: var(--answer-highlight, #a64b35);
+    background: var(--answer-highlight, #f1ddd4);
+    color: #292735;
+    transform: translateY(-1px);
+}
+
+.answer-option.selected {
+    border-color: var(--answer-highlight, #a64b35);
+    background: var(--answer-highlight, #f1ddd4);
+    color: #292735;
+    font-weight: 700;
+}
+
+.quiz-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.quiz-step-label {
+    color: #777481;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.quiz-navigation button,
+.quiz-restart {
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 0;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.quiz-back {
+    background: #f0eef3;
+    color: #494653;
+}
+
+.quiz-next,
+.quiz-restart {
+    background: #b7a0d0;
+    color: #000;
+}
+
+.quiz-next:not(:disabled):hover,
+.quiz-restart:hover {
+    background: #a68abe;
+}
+
+.quiz-next:disabled {
+    background: #e7e4ea;
+    color: #85818e;
+    cursor: not-allowed;
+}
+
+.results-card {
+    display: none;
+    margin-top: 24px;
+    padding: 30px;
+    border: 1px solid #9a83b4;
+    border-radius: 0;
+    background: linear-gradient(135deg, #d2c1e3, #e6dcef 65%);
+    box-shadow: 0 8px 24px rgb(34 31 43 / 8%);
+}
+
+.results-card.is-visible {
+    display: block;
+    animation: result-appear 300ms ease both;
+}
+
+.results-card h2 {
+    margin: 0 0 24px;
+    font-size: clamp(26px, 5vw, 36px);
+}
+
+.results-card h2 span {
+    color: #000;
+}
+
+.result-description {
+    margin: 0 0 22px;
+    color: #000;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.score-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.score-list p {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0;
+    padding: 13px 15px;
+    border-radius: 0;
+    background: #fff;
+    font-size: 14px;
+}
+
+.score-list strong {
+    color: #000;
+}
+
+.quiz-restart {
+    margin-top: 22px;
+}
+
+@keyframes result-appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 520px) {
+    main {
+        width: min(100% - 24px, 760px);
+        margin-top: 32px;
+    }
+
+    .quiz-header,
+    .question-card,
+    .results-card {
+        padding: 22px 18px;
+    }
+
+    .faction-card,
+    .divergent-card {
+        padding: 16px;
+    }
+
+    .quiz-header,
+    .question-card,
+    .results-card {
+        padding: 22px 18px;
+    }
+
+    .quiz-navigation button {
+        padding: 11px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
